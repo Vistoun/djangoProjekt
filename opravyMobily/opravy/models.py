@@ -8,10 +8,10 @@ ZNACKY = (
 )  
 
 
-def opravar_path(instance, filename):
+def oprava_path(instance, filename):
      return "oprava/" + str(instance.id) + "/fotka_rozbita/" + filename
 
-def oprava_path(instance, filename):
+def opravar_path(instance, filename):
      return "opravar/" + str(instance.id) + "/fotka/" + filename
 
 
