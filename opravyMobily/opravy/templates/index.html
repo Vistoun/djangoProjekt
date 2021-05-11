@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <div id="content">
+      <div id="text">
+        <div style="font-size: 1.25em;"> Vykoupíme tvůj </div>poškozený iPhone!
+        <div id="button"><a href="https://forms.gle/Qisz9UwgdCxboynH7"><button class="button" >Formulář</button></a></div>
+      </div>
+      <div >
+    {% load static %}
+    <img  id="img"src="{% static 'img/MobileBackground.png' %}" alt="">
+      </div>
+    </div>
+
+  
+  <div id="blackBox">
+    <div id="mainNavBox">
+      <div id="navBox">
+        Jak to funguje?
+      </div>
+    </div>
+    <div id="textBox">
+      <hr>
+      <p>Po kliknutí na tlačítko budute přesměrování na <a href="https://forms.gle/Qisz9UwgdCxboynH7">formulář</a>, ve kterém vyplníte veškeré údaje.</p>
+      <p>Jakmile příjmeme Vaší odpověď, tak Vás budeme v co nejbližší době kontaktovat na email (zádate ve formuláři), aby jsme s Vámi projednali další průběh.</p>
+      <br>
+      <p>Pro další otázky nás neváhejte kontaktovat na email -  <i>podpora@vykupiphonu.cz </i></p>
+    </div>
+  </div>
+  
+  {% for model in models %}
+  <div id = "cards">
+    <div class="card">
+     {% if model.fotka %}
+      <img src="{{ model.fotka.url }}" style="width:100%">
+      {% endif %}
+      <p>{{ model.znacka}} {{model.name}} </p>
+      
+    </div>
+  </div>  
+  {% endfor %}
+{% endblock %}

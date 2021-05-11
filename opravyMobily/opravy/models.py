@@ -14,6 +14,9 @@ def oprava_path(instance, filename):
 def opravar_path(instance, filename):
      return "opravar/" + str(instance.id) + "/fotka/" + filename
 
+def model_path(instance, filename):
+     return "modely/" + str(instance.id) + filename     
+
 
 class Opravar(models.Model):
 
@@ -36,7 +39,7 @@ class Model(models.Model):
     name = models.CharField(max_length=200, null= False, verbose_name="Název")
     znacka = models.CharField(max_length=20, choices=ZNACKY, blank=True, default="apple", verbose_name="Výrobce")
     cena = models.IntegerField(blank=True, null=True, verbose_name="Cena")
-
+    fotka = models.ImageField(upload_to=model_path, blank=True, null=True, verbose_name="Fotka")
     class Meta:
         ordering=["znacka"]
 
