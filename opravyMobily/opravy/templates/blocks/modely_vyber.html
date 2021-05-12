@@ -1,0 +1,13 @@
+
+  <div id = "cards">
+  {% for model in models %}
+  <a href="{% url 'model-detail' model.id %}">
+    <div class="card_model" >
+     {% if model.fotka %}
+      <img src="{{ model.fotka.url }}" style= "max-width: 301px; min-width: auto; min-height: 300px; max-height: 300px;" >
+      {% endif %}
+      <div class= "card_text">{{model.name}} </div>
+      </div>
+      {% endfor %}
+      </a>
+</div>

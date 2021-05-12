@@ -37,9 +37,13 @@ class Opravar(models.Model):
 class Model(models.Model):
     
     name = models.CharField(max_length=200, null= False, verbose_name="Název")
-    znacka = models.CharField(max_length=20, choices=ZNACKY, blank=True, default="apple", verbose_name="Výrobce")
-    cena = models.IntegerField(blank=True, null=True, verbose_name="Cena")
+    znacka = models.CharField(max_length=20, choices=ZNACKY, blank=True, default="Apple", verbose_name="Výrobce")
     fotka = models.ImageField(upload_to=model_path, blank=True, null=True, verbose_name="Fotka")
+    cena_baterka = models.IntegerField(blank=True, null=True, verbose_name="Cena výměneny baterky")
+    cena_displej = models.IntegerField(blank=True, null=True, verbose_name="Cena výměneny displeje")
+    cena_stav_a =  models.IntegerField(blank=True, null=True, verbose_name="Výkupní cena stav A")
+    popis = models.TextField(blank=True, null=False, verbose_name="Popis produktu") 
+    
     class Meta:
         ordering=["znacka"]
 

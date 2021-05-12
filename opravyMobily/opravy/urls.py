@@ -5,4 +5,5 @@ from . import views
 # URL mapování -seznam URL adres pro aplikaci 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('opravy/<int:pk>/', views.ModelDetailView.as_view(), name='model-detail'),
 ]

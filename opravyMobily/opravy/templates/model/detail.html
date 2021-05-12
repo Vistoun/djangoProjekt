@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Ceník{% endblock %}
+{% block content %}
+<main style = "margin-bottom: 10%">
+    <div id="content_cenik">
+    <div id="model_foto">
+        <img  id="img"src={{model_detail.fotka.url}} style = "max-width: 600px; max-height: 800px;" alt="">
+    </div>
+    <div id="text_cenik">
+        <h2 style="text-decoration: none;">{{model_detail.name}}</h2>
+        <p>{{model_detail.popis}}</p>
+
+        <table>
+            <tr>
+              <th>Oprava</th>
+              <th>Cena</th>
+            </tr>
+            <tr>
+              <td>Výměna baterie</td>
+              <td>{{model_detail.cena_baterka}} Kč</td>
+            </tr>
+            <tr>
+                <td>Výměna displeje</td>
+                <td>{{model_detail.displej}} Kč</td>
+            </tr>
+            <tr>
+                <td>Výměna zadního krytu </td>
+                <td> Kč</td>
+            </tr>
+            <tr>
+                <td>Výměna zadní kamery</td>
+                <td> Kč</td>
+            </tr>
+            <tr>
+                <td>Výměna přední kamery</td>
+                <td> Kč</td>
+              </tr>
+              <tr>
+                <td>Výměna sluchátka</td>
+                <td> Kč</td>
+              </tr>
+          </table>
+
+          <table>
+            <tr>
+              <th>Stav</th>
+              <th>Výkupní cena</th>
+            </tr>
+            <tr>
+              <td>Orginal</td>
+              <td></td>
+            </tr>
+            <tr>
+                <td>Stav A</td>
+                <td>{{model_detail.cena_stav_a}}</td>
+              </tr>
+              <tr>
+                <td>Stav B </td>
+                <td></td>
+              </tr>
+          </table>
+    </div>
+      
+    </div>
+  </main>
+  {% endblock %}
