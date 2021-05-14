@@ -12,7 +12,7 @@ def oprava_path(instance, filename):
      return "oprava/" + str(instance.id) + "/fotka_rozbita/" + filename
 
 def opravar_path(instance, filename):
-     return "opravar/" + str(instance.id) + "/fotka/" + filename
+     return "opravar/" + str(instance.name) + "/fotka/" + filename
 
 def model_path(instance, filename):
      return "modely/" + str(instance.id) + filename     

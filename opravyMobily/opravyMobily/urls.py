@@ -35,5 +35,6 @@ urlpatterns = [
     path('opravy/', include('opravy.urls')),
     # domovská stránka webu ('') je automaticky přesměrována na url z předešlého řádku ('movies')
     path('', RedirectView.as_view(url='opravy/')),] +  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
 
     

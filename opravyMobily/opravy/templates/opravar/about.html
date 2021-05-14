@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+ <div id="blackBox">
+    <div id="mainNavBox">
+      <div id="navBox">
+        ABOUT US
+      </div>
+    </div>
+    <div id="textBox">
+      <hr>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, autem eius. Quisquam mollitia dolores atque praesentium odio eveniet numquam nostrum sunt aliquid corporis sint quia, vitae, deleniti accusantium saepe voluptatibus!
+    </div>
+  </div>
+
+    <h1 style = "margin-top:5%" id="opravari_title"><b>Naší Opraváři</b></h1>
+    <div style="margin: 5% 10% 10% 10% ; " id="cards_avatar">
+    
+      {% for opravar in opravari %}
+        <div class="card">
+         {% if opravar.foto %}
+          <img src="{{opravar.foto.url}}" alt="" style="width:100%; min-width:300px; max-width:301; min-height: 500px; max-height: 501px;">
+          {% endif %}
+          <div class="avatar_text">
+            <h1 class="avatar_name">{{opravar.name}}</h1>
+            <p class="avatar_title">{{opravar.zamereni}}</p>
+            <p> </p>
+          </div>
+        </div>
+        {%endfor%}
+  </div>
+ {%endblock%} 

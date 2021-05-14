@@ -9,25 +9,25 @@
   </header>
   -->
 
-   <header>
     <nav>
       <div class="logo"> 
-        <h1 style="overflow-y:hidden;">
-          RɘFAB
+        <h1 style="overflow-y:hidden; ">
+        
+          <a  style="color: white; text-decoration: none;"href="{% url 'index' %}">RɘFAB</a>
         </h1>
       </div>
       <ul class="nav-links">
         <li>
-          <a href="">Home</a>
+          <a href="{% url 'index' %}">Home</a>
         </li>
         <li>
-          <a href="">About</a>
+          <a href="{% url 'opravar_about' %}">About</a>
         </li>
         <li>
-          <a href="">Models</a>
+          <a href="{% url 'index' %}">Models</a>
         </li>
         <li>
-          <a href="">Repair</a>
+          <a href="{% url 'index' %}">Repair</a>
         </li>
       </ul>
       <div class="burger">
@@ -36,4 +36,5 @@
         <div class="line3"></div>
       </div>
     </nav>
-  </header>
+
+     
