@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(Oprava)
 admin.site.register(Opravar)
 admin.site.register(Model)
+admin.site.register(Brand)
