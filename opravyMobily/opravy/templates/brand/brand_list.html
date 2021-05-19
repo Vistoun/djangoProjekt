@@ -3,7 +3,7 @@
 <ul>
     {% for brand in brands %}
         <li>
-          <a href=""><b>{{ brand.name }}</b></a>
+          <a href="{%url "model_vyber" brand.name%}"><b>{{ brand.name }}</b></a>
         </li>
     {% endfor %}    
       </ul>

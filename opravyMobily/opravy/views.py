@@ -27,13 +27,14 @@ def index(request):
 class ModelListView(ListView):
     model = Model
 
-    context_object_name = 'model_list'   # your own name for the list as a template variable
+    context_object_name = 'models_list'   # your own name for the list as a template variable
     template_name = 'model/list.html'  # Specify your own template name/location
     #paginate_by = 3
 
     def get_queryset(self):
         if 'brand_name' in self.kwargs:
-            return Model.objects.filter(brands__name=self.kwargs['brand_name']).all() # Get 5 books containing the title war
+            print("brand_name")
+            return Model.objects.filter(znacka__name__contains=self.kwargs['brand_name']).all() # Get 5 books containing the title war
         else:
             return Model.objects.all()
 
@@ -42,6 +43,8 @@ class ModelListView(ListView):
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
         context['num_models'] = len(self.get_queryset())
+        context['brands'] = Brand.objects.all()
+        #context['models'] = Model.objects.all()
         """
         if 'brand_name' in self.kwargs:
             context['view_title'] = f"Žánr: {self.kwargs['genre_name']}"
