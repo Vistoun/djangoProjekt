@@ -70,9 +70,7 @@ class Oprava(models.Model):
     
     popis = models.TextField(blank=True, null= False, verbose_name="Popis zavady")
     opravar = models.ForeignKey(Opravar, on_delete=models.CASCADE)
-    
     cena = models.IntegerField(blank=True, null=False, verbose_name="Cena opravy")
-    zakaznik = models.CharField(max_length=200, blank= True, null=True, verbose_name="Jméno a přijmení zákazníka")
     foto = models.ImageField(upload_to=oprava_path, blank=True, null=True, verbose_name="Fotka")
 
     class Meta:

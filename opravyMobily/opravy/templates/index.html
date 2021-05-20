@@ -4,8 +4,8 @@
 <main>
  <div id="content">
       <div id="text">
-        <div style="font-size: 1.25em;"> Opravíme tvůj </div>poškozený iPhone!
-        <div id="button"><a href="https://forms.gle/Qisz9UwgdCxboynH7"><button class="button" >Formulář</button></a></div>
+        <div style="font-size: 1.25em;"> Opravíme tvůj </div>poškozený telefon!
+        <div id="button"><a href="{%url "model_vyber" "apple" %}"><button class="button" >Ceník oprav</button></a></div>
       </div>
       <div >
     {% load static %}
@@ -19,8 +19,7 @@
 </div>
 
 <div>
- {% include "brand/brand_list.html" %}
- {% include "model/list.html" %}
+ 
 </div>
     
 {% endblock %}
