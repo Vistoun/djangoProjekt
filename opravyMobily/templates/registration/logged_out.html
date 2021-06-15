@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 style = "margin-top:5%" id="opravari_title"><b>goodbye!</b></h1>
+
+
+    <div style = "margin-top:5%; margin-bottom:8%"class="container">
+    <div class="container">
+        <div class="alert alert-info">
+            <p>Byl/a jste odhlášen/a</p>
+            <a href="{% url 'login'%}">Po kliknutí se můžete znovu přihlásit</a>
+        </div>
+    </div>
+
+{% endblock %}

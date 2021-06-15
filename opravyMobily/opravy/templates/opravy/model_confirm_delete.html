@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 style = "margin-top:5%" id="opravari_title"><b>editace modelu</b></h1>
+
+
+    <div style = "margin-top:5%; margin-bottom:8%"class="container">
+
+    <p>Určitě chcete smazat tento model: {{ model }}?</p>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Yes, delete.">
+    </form>
+    </div>
+{% endblock %}

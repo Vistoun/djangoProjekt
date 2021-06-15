@@ -62,5 +62,13 @@
     </div>
       
     </div>
+
+
+
+
   </main>
+  {% if user.is_authenticated %}
+    <a href="{% url 'model-update' model_detail.pk %}" class="btn btn-primary">Upravit</a>
+    <a href="{% url 'model-delete' model_detail.pk %}" class="btn btn-danger">Smazat</a>
+    {%endif%}
   {% endblock %}

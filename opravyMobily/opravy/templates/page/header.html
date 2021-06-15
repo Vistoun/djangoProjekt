@@ -11,8 +11,10 @@
 
     <nav>
       <div class="logo"> 
+      <a href = "{% url 'index' %}">
       {% load static %}
-        <img src="{% static 'img/logoPalus.png' %}" alt="" width="" height=""  > 
+        <img src="{% static 'img/logoPalus.png' %}" alt="" width="110%" height="110%"> 
+        </a>
       </div>
       <ul class="nav-links">
         <li>
@@ -24,9 +26,14 @@
         <li>
           <a href="{% url 'model_vyber' "apple" %}">Models</a>
         </li>
-        <li>
-          <a href="{% url 'index' %}">Repair</a>
-        </li>
+        <div style="margin-left:10%;">
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'index' %}">User: {{ user.get_username }}</a></li>
+          <li><a href="{% url 'logout'%}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+          {% endif %}
+        </div>
       </ul>
       <div class="burger">
         <div class="line1"></div>

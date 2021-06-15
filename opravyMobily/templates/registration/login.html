@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+    <h1 style = "margin-top:5%" id="opravari_title"><b>login</b></h1>
+
+
+    <div style = "margin-top:5%; margin-bottom:5%"class="container">
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <p>Uživatelské jméno nebo heslo není správné. Zkuste to, prosím, znovu.</p>
+        </div>
+        {% endif %}
+
+        {% if next %}
+        {% if user.is_authenticated %}
+
+        <p  style="text-align:center">Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+        {% else %}
+        <!--
+        <p style="text-align:center">Please login to see this page.</p> -->
+        {% endif %}
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="row form-group">
+                <label for="id_username" class="offset-md-3 col-md-2">{{ form.username.label }}</label>
+                <div class="col-md-4">
+                    {% render_field form.username class="form-control" %}
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="id_password" class="offset-md-3 col-md-2">{{ form.password.label }}</label>
+                <div class="col-md-4">
+                    {% render_field form.password class="form-control" %}
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="offset-md-5 col-md-4">
+                    <button class="btn btn-primary">Přihlásit se</button>
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                </div>
+            </div>
+        </form>
+
+        {# Odkaz pro reset hesla #}
+        <!--<p  style = "text-align:left;"><a href="{% url 'password_reset' %}">Chcete obnovit své heslo?</a></p> -->
+        <p  style = "text-align:left;"><a href="{% url 'signup' %}">Registrace</a></p>
+    </div>
+{% endblock %}

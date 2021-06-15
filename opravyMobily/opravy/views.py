@@ -1,7 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from typing import List
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy, reverse
 
+from opravy.forms import ModelForm
 from opravy.models import Brand, Oprava, Model, Opravar
 
 # Create your views here.
@@ -81,3 +84,20 @@ class OpravarAbout(TemplateView):
         context = super().get_context_data(**kwargs)
         context['opravari'] = Opravar.objects.all()
         return context
+
+class ModelCreate(CreateView):
+    model = Model
+    fields = ['name', 'znacka', 'fotka', 'cena_baterka', 'cena_displej', 'cena_stav_a', 'popis']
+
+
+class ModelUpdate(UpdateView):
+    model = Model
+    template_name = 'model/form_edit.html'
+    form_class = ModelForm
+  
+    #fields = '__all__' # Not recommended (potential security issue if more fields added)
+
+
+class ModelDelete(DeleteView):
+    model = Model
+    success_url = reverse_lazy('index')

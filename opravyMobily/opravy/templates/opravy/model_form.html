@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Editace filmu{% endblock %}
+
+{% block content %}
+<h1 style = "margin-top:5%" id="opravari_title"><b>vytvoření modelu</b></h1>
+
+
+    <div style = "margin-top:5%; margin-bottom:5%"class="container">
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</div>
+{% endblock %}

@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse_lazy, reverse
+
 
 ZNACKY = (
         ('apple', 'Apple'),
@@ -50,6 +52,10 @@ class Model(models.Model):
 
     def __str__(self):
         return f"{self.znacka} {self.name}"
+
+    def get_absolute_url(self):
+        """Metoda vrací URL stránky, na které se vypisují podrobné informace o filmu"""
+        return reverse('model-detail', args=[str(self.id)]) 
 
 
 class Opravar(models.Model):
