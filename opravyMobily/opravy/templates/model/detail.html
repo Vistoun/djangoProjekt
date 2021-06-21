@@ -67,8 +67,15 @@
 
 
   </main>
-  {% if user.is_authenticated %}
+  {% if user.is_authenticated %} 
+  <div  style = "text-align: center; margin: 3%;">
+    {% if perms.opravy.change_model%}
     <a href="{% url 'model-update' model_detail.pk %}" class="btn btn-primary">Upravit</a>
+    {%endif%}
+
+    {% if perms.opravy.delete_model%}
     <a href="{% url 'model-delete' model_detail.pk %}" class="btn btn-danger">Smazat</a>
+    {% endif %}
+  </div>
     {%endif%}
   {% endblock %}

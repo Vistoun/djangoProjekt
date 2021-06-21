@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from typing import List
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
@@ -85,19 +86,25 @@ class OpravarAbout(TemplateView):
         context['opravari'] = Opravar.objects.all()
         return context
 
-class ModelCreate(CreateView):
+class ModelCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Model
     fields = ['name', 'znacka', 'fotka', 'cena_baterka', 'cena_displej', 'cena_stav_a', 'popis']
+    login_url = '/accounts/login/'
+    permission_required = 'opravy.add_model'
 
-
-class ModelUpdate(UpdateView):
+class ModelUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Model
     template_name = 'model/form_edit.html'
     form_class = ModelForm
-  
+    login_url = '/accounts/login/'
+    permission_required = 'opravy.change_model'
+
     #fields = '__all__' # Not recommended (potential security issue if more fields added)
 
 
-class ModelDelete(DeleteView):
+class ModelDelete( LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Model
     success_url = reverse_lazy('index')
+    login_url = '/accounts/login/'
+    permission_required = 'opravy.delete_model'
+

@@ -16,10 +16,11 @@
       </a>
 </div>
 {% if user.is_authenticated %}
-<div >
+{% if perms.opravy.add_model%}
 <a style = "text-decoration: none!important;" href = "{% url 'model-create' %}">
 <p style = "text-decoration: none!important; text-align: center; padding-bottom:5%;">VYTVOŘIT</p>
 </a>
-</div>
+
+{%endif%}
 {%endif%}
 {%endblock%}
